@@ -1,0 +1,1 @@
+/Library/Developer/CommandLineTools/usr/bin/cc  -arch arm64 -mmacosx-version-min=12.5 -dynamiclib -Wl,-headerpad_max_install_names -o libELLIPSE_LIB.dylib -install_name @rpath/libELLIPSE_LIB.dylib CMakeFiles/ELLIPSE_LIB.dir/src/arithmetic.c.o  /usr/local/lib/libsodium.dylib /usr/local/lib/libgmp.dylib 

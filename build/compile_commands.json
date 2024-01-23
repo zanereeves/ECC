@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/Users/zanereeves/projects/ECC/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/cc -DELLIPSE_LIB_EXPORTS -I/usr/local/include -I/opt/homebrew/Cellar/gmp/6.3.0/include  -arch arm64 -mmacosx-version-min=12.5 -fPIC -I/usr/local/include -I/opt/homebrew/Cellar/gmp/6.3.0/include -o CMakeFiles/ELLIPSE_LIB.dir/src/arithmetic.c.o -c /Users/zanereeves/projects/ECC/src/arithmetic.c",
+  "file": "/Users/zanereeves/projects/ECC/src/arithmetic.c",
+  "output": "CMakeFiles/ELLIPSE_LIB.dir/src/arithmetic.c.o"
+},
+{
+  "directory": "/Users/zanereeves/projects/ECC/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/cc  -I/usr/local/include -I/opt/homebrew/Cellar/gmp/6.3.0/include  -arch arm64 -mmacosx-version-min=12.5 -I/usr/local/include -I/opt/homebrew/Cellar/gmp/6.3.0/include -o CMakeFiles/ellipse.dir/src/main.c.o -c /Users/zanereeves/projects/ECC/src/main.c",
+  "file": "/Users/zanereeves/projects/ECC/src/main.c",
+  "output": "CMakeFiles/ellipse.dir/src/main.c.o"
+}
+]

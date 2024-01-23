@@ -1,0 +1,3 @@
+/Users/zanereeves/projects/ECC/CMakeFiles/ellipse.dir
+/Users/zanereeves/projects/ECC/CMakeFiles/edit_cache.dir
+/Users/zanereeves/projects/ECC/CMakeFiles/rebuild_cache.dir
