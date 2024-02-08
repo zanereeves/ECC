@@ -170,4 +170,5 @@ CMakeFiles/ELLIPSE_LIB.dir/src/arithmetic.c.o: \
   /usr/local/include/sodium/crypto_scalarmult_ristretto255.h \
   /usr/local/include/sodium/crypto_secretbox_xchacha20poly1305.h \
   /usr/local/include/sodium/crypto_stream_salsa2012.h \
-  /usr/local/include/sodium/crypto_stream_salsa208.h
+  /usr/local/include/sodium/crypto_stream_salsa208.h \
+  /usr/local/include/inttypes.h

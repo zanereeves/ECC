@@ -1,45 +1,97 @@
 #include "../header/arithmetic.h"
 #include "gmp.h"
+#include "inttypes.h"
+
+point initPoint(void) {
+  point p;
+
+  mpz_init(p.x);
+  mpz_init(p.y);
+  return p;
+}
 
 finiteField initField(void) {
   finiteField new_field;
-  mpz_init(new_field.field_len);
-  mpz_init(new_field.point);
 
+  new_field.p = initPoint();
+  mpz_init(new_field.field_len);
   return new_field;
 }
 
-void modinv(mpz_t a, mpz_t b, mpz_t gcd, mpz_t x, mpz_t y) {
-  if (mpz_get_ui(b) == 0) {
-    mpz_set(gcd, a);
-    mpz_set_ui(x, 1);
-    mpz_set_ui(y, 0);
-  } else {
-    mpz_t gcd_temp, x1, y1, temp;
-    mpz_inits(gcd_temp, x1, y1, temp, NULL);
+const unsigned long A_COEF_VAL = 0;
 
-    mpz_mod(temp, a, b);
-    modinv(b, temp, gcd, x1, y1);
+void EAdd(point p1, point p2, mpz_t field_len) {
+  mpz_t lambda, mod_val, temp;
+  mpz_inits(lambda, mod_val, temp, NULL);
+  mpz_sub(lambda, p2.y, p1.y);
 
-    mpz_set(gcd, gcd_temp);
-    mpz_set(x, y1);
-    mpz_sub(temp, x1, y1);
-    mpz_tdiv_q(temp, a, b);
-    mpz_mul(temp, temp, y1);
-    mpz_set(y, temp);
+  mpz_sub(mod_val, p2.x, p2.y);
+  mpz_invert(mod_val, mod_val, field_len);
 
-    mpz_clears(gcd_temp, x1, y1, temp, NULL);
+  mpz_mul(lambda, lambda, mod_val);
+  mpz_mod(lambda, lambda, field_len);
+
+  mpz_mul(mod_val, lambda, lambda);
+  mpz_sub(mod_val, mod_val, p1.x);
+  mpz_sub(mod_val, mod_val, p2.x);
+  mpz_mod(mod_val, mod_val, field_len);
+
+  mpz_sub(temp, p1.x, mod_val);
+  mpz_mul(temp, lambda, temp);
+  mpz_sub(temp, temp, p1.y);
+  mpz_mod(temp, temp, field_len);
+
+  // mod_val holds the x value
+  // temp holds the y value
+  mpz_set(p1.x, mod_val);
+  mpz_set(p1.y, temp);
+
+  mpz_clears(lambda, mod_val, temp, NULL);
+}
+
+void Edbltemp(point p1, mpz_t field_len) { EAdd(p1, p1, field_len); }
+
+void Ed(point p1, mpz_t field_len) {
+  mpz_t lambda, temp, temp2, x;
+  mpz_inits(lambda, temp, temp2, x, NULL);
+
+  mpz_mul(lambda, p1.x, p1.x);
+  mpz_mul_ui(lambda, lambda, 3U);
+  mpz_add_ui(lambda, lambda, 0U);
+  mpz_mul_ui(temp, p1.y, 2);
+  mpz_invert(temp, temp, field_len);
+
+  mpz_mul(lambda, lambda, temp);
+  mpz_mod(lambda, lambda, field_len);
+
+  mpz_mul(x, lambda, lambda);
+  mpz_mul_ui(temp2, p1.x, 2U);
+  mpz_sub(x, x, temp2);
+  mpz_mod(x, x, field_len);
+
+  // gmp_printf("%Zd\n", x);
+  mpz_sub(temp2, p1.x, temp);
+  mpz_mul(temp2, lambda, temp2);
+  mpz_sub(temp2, temp2, p1.y);
+  mpz_mod(temp2, temp2, field_len);
+
+  mpz_set(p1.x, x);
+  mpz_set(p1.y, temp2);
+  mpz_clears(lambda, temp, temp2, x, NULL);
+}
+
+point EccMult(point start, mpz_t scalar, mpz_t field_len) {
+  point return_val = initPoint();
+
+  mpz_init_set(return_val.x, start.x);
+  mpz_init_set(return_val.y, start.y);
+
+  for (unsigned long i = 0; i < 256; i++) {
+    Ed(return_val, field_len);
+
+    if (mpz_tstbit(scalar, (mp_bitcnt_t)i)) {
+      EAdd(return_val, start, field_len);
+    }
   }
-}
-
-void subPoints(mpz_t pt1, const mpz_t pt2, const mpz_t field_len) {
-  mpz_sub(pt1, (mpz_srcptr)pt1, (mpz_srcptr)pt2);
-
-  mpz_mod(pt1, pt1, field_len);
-}
-
-void addPoints(mpz_t pt1, const mpz_t pt2, const mpz_t field_len) {
-  mpz_add(pt1, (mpz_srcptr)pt1, (mpz_srcptr)pt2);
-
-  mpz_mod(pt1, (mpz_srcptr)pt1, field_len);
+  return return_val;
 }

@@ -26,6 +26,7 @@ CMakeFiles/ELLIPSE_LIB.dir/src/arithmetic.c.o: /Users/zanereeves/projects/ECC/sr
   /usr/local/include/arm/limits.h \
   /usr/local/include/arm/signal.h \
   /usr/local/include/arm/types.h \
+  /usr/local/include/inttypes.h \
   /usr/local/include/libkern/_OSByteOrder.h \
   /usr/local/include/libkern/arm/OSByteOrder.h \
   /usr/local/include/limits.h \
@@ -337,19 +338,15 @@ CMakeFiles/ELLIPSE_LIB.dir/src/arithmetic.c.o: /Users/zanereeves/projects/ECC/sr
 
 /usr/local/include/sodium/crypto_stream_salsa20.h:
 
-/usr/local/include/libkern/_OSByteOrder.h:
-
-/usr/local/include/sodium/crypto_verify_16.h:
-
 /usr/local/include/sodium/crypto_stream_chacha20.h:
 
 /usr/local/include/sys/_pthread/_pthread_t.h:
 
 /usr/local/include/sodium/crypto_sign.h:
 
-/usr/local/include/secure/_common.h:
-
 /usr/local/include/sodium/crypto_shorthash.h:
+
+/usr/local/include/secure/_common.h:
 
 /usr/local/include/sodium/crypto_secretbox_xsalsa20poly1305.h:
 
@@ -427,16 +424,6 @@ CMakeFiles/ELLIPSE_LIB.dir/src/arithmetic.c.o: /Users/zanereeves/projects/ECC/sr
 
 /usr/local/include/sodium/crypto_auth.h:
 
-/usr/local/include/_types.h:
-
-/usr/local/include/arm/types.h:
-
-/usr/local/include/sys/_types/_suseconds_t.h:
-
-/usr/local/include/sys/_types/_size_t.h:
-
-/usr/local/include/sodium/crypto_aead_xchacha20poly1305.h:
-
 /usr/local/include/sodium/crypto_aead_chacha20poly1305.h:
 
 /usr/local/include/arm/_types.h:
@@ -488,6 +475,22 @@ CMakeFiles/ELLIPSE_LIB.dir/src/arithmetic.c.o: /Users/zanereeves/projects/ECC/sr
 /usr/local/include/arm/_limits.h:
 
 /usr/local/include/sodium/crypto_core_salsa2012.h:
+
+/usr/local/include/sodium/crypto_verify_16.h:
+
+/usr/local/include/libkern/_OSByteOrder.h:
+
+/usr/local/include/inttypes.h:
+
+/usr/local/include/sys/_types/_suseconds_t.h:
+
+/usr/local/include/sys/_types/_size_t.h:
+
+/usr/local/include/sodium/crypto_aead_xchacha20poly1305.h:
+
+/usr/local/include/_types.h:
+
+/usr/local/include/arm/types.h:
 
 /usr/local/include/sys/_types/_int8_t.h:
 

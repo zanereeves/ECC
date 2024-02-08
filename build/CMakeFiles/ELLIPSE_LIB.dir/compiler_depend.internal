@@ -27,6 +27,7 @@ CMakeFiles/ELLIPSE_LIB.dir/src/arithmetic.c.o
  /usr/local/include/arm/limits.h
  /usr/local/include/arm/signal.h
  /usr/local/include/arm/types.h
+ /usr/local/include/inttypes.h
  /usr/local/include/libkern/_OSByteOrder.h
  /usr/local/include/libkern/arm/OSByteOrder.h
  /usr/local/include/limits.h
