@@ -24,7 +24,7 @@ Finish Nova ???
 ## Resources and other Supplementary Materials
 https://medium.com/@oleg.burundukov/pedersen-commitments-5726e14b65e
 https://doc.rust-lang.org/book/
-
+https://github.com/zanereeves/rust_tutorial
 
 ### Second meeting timeline
 I completed an secp implementation that is reasonably effective. I have obtained a
