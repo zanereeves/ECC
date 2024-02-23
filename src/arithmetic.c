@@ -80,13 +80,43 @@ void Ed(point p1, mpz_t field_len) {
   mpz_clears(lambda, temp, temp2, x, NULL);
 }
 
+point EccMult2(point start, mpz_t scalar, mpz_t field_len) {
+  point return_val = initPoint();
+
+  mpz_init_set(return_val.x, start.x);
+  mpz_init_set(return_val.y, start.y);
+  int cap = 0;
+  for (int i = 0; i < 256; i++) {
+    if (mpz_tstbit(scalar, (mp_bitcnt_t)i)) {
+      cap = i;
+    }
+  }
+
+  cap -= 2;
+  while (cap >= 0) {
+    Ed(return_val, field_len);
+    if (mpz_tstbit(scalar, (mp_bitcnt_t)cap)) {
+      EAdd(return_val, start, field_len);
+    }
+    cap -= 1;
+  }
+
+  return return_val;
+}
+
 point EccMult(point start, mpz_t scalar, mpz_t field_len) {
   point return_val = initPoint();
 
   mpz_init_set(return_val.x, start.x);
   mpz_init_set(return_val.y, start.y);
-
+  unsigned long cap = 0;
   for (unsigned long i = 0; i < 256; i++) {
+    if (mpz_tstbit(scalar, (mp_bitcnt_t)i)) {
+      cap = i;
+    }
+  }
+
+  for (unsigned long i = 0; i <= cap; i++) {
     Ed(return_val, field_len);
 
     if (mpz_tstbit(scalar, (mp_bitcnt_t)i)) {
@@ -94,4 +124,13 @@ point EccMult(point start, mpz_t scalar, mpz_t field_len) {
     }
   }
   return return_val;
+}
+
+point PedersenCommit(point G, point H, mpz_t blinding_factor,
+                     mpz_t hidden_value, mpz_t field_len) {
+  point rG = EccMult(G, blinding_factor, field_len);
+  point aH = EccMult(H, hidden_value, field_len);
+
+  EAdd(aH, rG, field_len);
+  return aH;
 }

@@ -18,3 +18,5 @@ void EAdd(point p1, point p2, mpz_t field_len);
 void Ed(point p1, mpz_t field_len);
 void Edbltemp(point p1, mpz_t field_len);
 point EccMult(point start, mpz_t scalar, mpz_t field_len);
+point PedersenCommit(point G, point H, mpz_t blinding_factor,
+                     mpz_t hidden_value, mpz_t field_len);
