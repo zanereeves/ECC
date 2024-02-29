@@ -1,5 +1,16 @@
 ## Timeline
 ### This weeks timeline
+I wrote up implementation code in python in two separate files because I wasn't managing to consolidate
+both my C code output with my python code output and I wanted to make sure I understood the core logic.
+Furthermore, I am currently wondering if it would be better to implement several cryptographic cryptography
+schemes using just C as implementing via Nova would require a Risc instance for testing and I am currently
+struggling with basic ECC math due to the awkwardness of GMP. Therefore, I am currently low confidence in my
+ability to produce code that works without sufficient testing. I code possibly plan on outputting implementation
+code in python before the end of term? As my turn around time on python is much faster than with C using gmp.
+
+
+
+### Third meeting timeline
 
 I wrote Pedersen commitment code and have what I believe to be a successful implementation.
 The issue is on running through my EccMult code I believe there is a fundamental mess up in
