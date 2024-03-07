@@ -1,5 +1,16 @@
 ## Timeline
 ### This weeks timeline
+I scanned through the input and output for every function meticulously to determine that the error in calculation
+was within the ECC scalar double code. I incorrectly labeled a variable swap and it caused unexpected behavior
+later within process execution. Furthermore, I implemented a variety of test scripts that tested
+the core ECCmult code, and Pedersen commitment scheme as fully homomorphic. I used CTest as my testing
+suite as it is already built within CMake.
+
+https://cmake.org/cmake/help/book/mastering-cmake/chapter/Testing%20With%20CMake%20and%20CTest.html
+https://coderefinery.github.io/cmake-workshop/testing/
+
+
+### Last weeks timeline
 I wrote up implementation code in python in two separate files because I wasn't managing to consolidate
 both my C code output with my python code output and I wanted to make sure I understood the core logic.
 Furthermore, I am currently wondering if it would be better to implement several cryptographic cryptography
