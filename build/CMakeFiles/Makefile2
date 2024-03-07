@@ -63,7 +63,8 @@ CMAKE_BINARY_DIR = /Users/zanereeves/projects/ECC/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/ellipse.dir/all
+all: CMakeFiles/ellipseScal.dir/all
+all: CMakeFiles/ellipsePed.dir/all
 all: CMakeFiles/ELLIPSE_LIB.dir/all
 .PHONY : all
 
@@ -72,35 +73,62 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/ellipse.dir/clean
+clean: CMakeFiles/ellipseScal.dir/clean
+clean: CMakeFiles/ellipsePed.dir/clean
 clean: CMakeFiles/ELLIPSE_LIB.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/ellipse.dir
+# Target rules for target CMakeFiles/ellipseScal.dir
 
 # All Build rule for target.
-CMakeFiles/ellipse.dir/all: CMakeFiles/ELLIPSE_LIB.dir/all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ellipse.dir/build.make CMakeFiles/ellipse.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ellipse.dir/build.make CMakeFiles/ellipse.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/zanereeves/projects/ECC/build/CMakeFiles --progress-num=3,4 "Built target ellipse"
-.PHONY : CMakeFiles/ellipse.dir/all
+CMakeFiles/ellipseScal.dir/all: CMakeFiles/ELLIPSE_LIB.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ellipseScal.dir/build.make CMakeFiles/ellipseScal.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ellipseScal.dir/build.make CMakeFiles/ellipseScal.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/zanereeves/projects/ECC/build/CMakeFiles --progress-num=5,6 "Built target ellipseScal"
+.PHONY : CMakeFiles/ellipseScal.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/ellipse.dir/rule: cmake_check_build_system
+CMakeFiles/ellipseScal.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/zanereeves/projects/ECC/build/CMakeFiles 4
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/ellipse.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/ellipseScal.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/zanereeves/projects/ECC/build/CMakeFiles 0
-.PHONY : CMakeFiles/ellipse.dir/rule
+.PHONY : CMakeFiles/ellipseScal.dir/rule
 
 # Convenience name for target.
-ellipse: CMakeFiles/ellipse.dir/rule
-.PHONY : ellipse
+ellipseScal: CMakeFiles/ellipseScal.dir/rule
+.PHONY : ellipseScal
 
 # clean rule for target.
-CMakeFiles/ellipse.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ellipse.dir/build.make CMakeFiles/ellipse.dir/clean
-.PHONY : CMakeFiles/ellipse.dir/clean
+CMakeFiles/ellipseScal.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ellipseScal.dir/build.make CMakeFiles/ellipseScal.dir/clean
+.PHONY : CMakeFiles/ellipseScal.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/ellipsePed.dir
+
+# All Build rule for target.
+CMakeFiles/ellipsePed.dir/all: CMakeFiles/ELLIPSE_LIB.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ellipsePed.dir/build.make CMakeFiles/ellipsePed.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ellipsePed.dir/build.make CMakeFiles/ellipsePed.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/zanereeves/projects/ECC/build/CMakeFiles --progress-num=3,4 "Built target ellipsePed"
+.PHONY : CMakeFiles/ellipsePed.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/ellipsePed.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/zanereeves/projects/ECC/build/CMakeFiles 4
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/ellipsePed.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/zanereeves/projects/ECC/build/CMakeFiles 0
+.PHONY : CMakeFiles/ellipsePed.dir/rule
+
+# Convenience name for target.
+ellipsePed: CMakeFiles/ellipsePed.dir/rule
+.PHONY : ellipsePed
+
+# clean rule for target.
+CMakeFiles/ellipsePed.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ellipsePed.dir/build.make CMakeFiles/ellipsePed.dir/clean
+.PHONY : CMakeFiles/ellipsePed.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/ELLIPSE_LIB.dir

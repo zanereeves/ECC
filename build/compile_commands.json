@@ -7,8 +7,14 @@
 },
 {
   "directory": "/Users/zanereeves/projects/ECC/build",
-  "command": "/Library/Developer/CommandLineTools/usr/bin/cc  -I/usr/local/include -I/opt/homebrew/Cellar/gmp/6.3.0/include  -arch arm64 -mmacosx-version-min=12.5 -I/usr/local/include -I/opt/homebrew/Cellar/gmp/6.3.0/include -o CMakeFiles/ellipse.dir/src/main.c.o -c /Users/zanereeves/projects/ECC/src/main.c",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/cc  -I/usr/local/include -I/opt/homebrew/Cellar/gmp/6.3.0/include  -arch arm64 -mmacosx-version-min=12.5 -I/usr/local/include -I/opt/homebrew/Cellar/gmp/6.3.0/include -o CMakeFiles/ellipseScal.dir/src/main.c.o -c /Users/zanereeves/projects/ECC/src/main.c",
   "file": "/Users/zanereeves/projects/ECC/src/main.c",
-  "output": "CMakeFiles/ellipse.dir/src/main.c.o"
+  "output": "CMakeFiles/ellipseScal.dir/src/main.c.o"
+},
+{
+  "directory": "/Users/zanereeves/projects/ECC/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/cc  -I/usr/local/include -I/opt/homebrew/Cellar/gmp/6.3.0/include  -arch arm64 -mmacosx-version-min=12.5 -I/usr/local/include -I/opt/homebrew/Cellar/gmp/6.3.0/include -o CMakeFiles/ellipsePed.dir/src/pedersenTest.c.o -c /Users/zanereeves/projects/ECC/src/pedersenTest.c",
+  "file": "/Users/zanereeves/projects/ECC/src/pedersenTest.c",
+  "output": "CMakeFiles/ellipsePed.dir/src/pedersenTest.c.o"
 }
 ]

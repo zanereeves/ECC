@@ -1,5 +1,5 @@
-CMakeFiles/ellipse.dir/src/main.c.o: \
-  /Users/zanereeves/projects/ECC/src/main.c \
+CMakeFiles/ellipsePed.dir/src/pedersenTest.c.o: \
+  /Users/zanereeves/projects/ECC/src/pedersenTest.c \
   /Users/zanereeves/projects/ECC/src/../header/arithmetic.h \
   /opt/homebrew/Cellar/gmp/6.3.0/include/gmp.h \
   /usr/local/include/stddef.h /usr/local/include/_types.h \

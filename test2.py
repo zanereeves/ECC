@@ -49,14 +49,13 @@ def mul(P, k):
 
 Gpoint = Point(55066263022277343669578718895168534326250603453777594175500187360389116729240, 32670510020758816978083085130507043184471273380659243275938904335757337482424)
 
-#//print(EccAdd(Gpoint, Gpoint)) 
 
-# //print(mul(Gpoint, mod_invert(0x75EA2AC47B5AB6798ED26A22346F3D5A313F7BA1F929BA9F99F5ABB045A9E9DA)))
 
 privKey = 0x75EA2AC47B5AB6798ED26A22346F3D5A313F7BA1F929BA9F99F5ABB045A9E9DA
 RandNum = 28695618543805844332113829720373285210420739438570883203839696518176414791234
 gen2 = mul(Gpoint,privKey)
 print(gen2)
+#print(EccAdd(Gpoint, gen2))
 
 #print("val above")
 N = 0xfffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364141
@@ -65,15 +64,19 @@ N = 0xfffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364141
 rg1 = mul(gen2, 50)
 rg2 = mul(gen2, 50)
 ah1 = mul(Gpoint, 5)
-
+#print(rg1)
 rg1ah1 = EccAdd(rg1, ah1)
-ah2 = mul(Gpoint, 5)
+#print(rg1ah1)
+ah2 = mul(Gpoint, 2)
 rg2ah2 = EccAdd(rg2, ah2)
+#print(rg2ah2)
 rgsum = EccAdd(rg1, rg2)
 ahsum = EccAdd(ah1, ah2)
 
 addedsum2 = EccAdd(rg1ah1, rg2ah2)
-#//print(addedsum2)
+print(addedsum2)
+
+
 addedsum = EccAdd(rgsum, ahsum)
 #//print(addedsum)
 

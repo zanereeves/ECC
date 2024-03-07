@@ -1,0 +1,33 @@
+Start testing: Mar 07 01:55 PST
+----------------------------------------------------------
+1/2 Testing: test_0
+1/2 Test: test_0
+Command: "/Users/zanereeves/projects/ECC/build/ellipseScal"
+Directory: /Users/zanereeves/projects/ECC/build
+"test_0" start time: Mar 07 01:55 PST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.17 sec
+----------------------------------------------------------
+Test Passed.
+"test_0" end time: Mar 07 01:55 PST
+"test_0" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/2 Testing: test_1
+2/2 Test: test_1
+Command: "/Users/zanereeves/projects/ECC/build/ellipsePed"
+Directory: /Users/zanereeves/projects/ECC/build
+"test_1" start time: Mar 07 01:55 PST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.08 sec
+----------------------------------------------------------
+Test Passed.
+"test_1" end time: Mar 07 01:55 PST
+"test_1" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Mar 07 01:55 PST

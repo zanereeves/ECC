@@ -20,7 +20,6 @@ def pointAdd(p1, p2, N):
         x2, y2 = p2
 
         lambd = ((y2 - y1)) * pow((x2 - x1), N-2, N) % N
-        print( (y1))
         nx = ((lambd**2 % N) - (x2 % N) - (x1 % N)) % N
         ny = ((lambd*((x1 - nx) % N)) % N - y1) % N
         result = (nx, ny)
@@ -30,9 +29,9 @@ def pointAdd(p1, p2, N):
 def pointD(p1, N):
     x1, y1 = p1
     lambd = (3*x1**2 % N) * (pow((2 * y1), N-2, N) % N) % N
+
     nx = (((lambd ** 2) % N) - ((2*x1) % N)) % N
     ny = (((lambd * (x1 - nx)) % N) - (y1 % N) ) % N
-
     return (nx, ny)
 
 def DandA(p, scalar, N):
@@ -46,8 +45,7 @@ def DandA(p, scalar, N):
     return res
 
 
-scal = 0x75EA2AC47B5AB6798ED26A22346F3D5A313F7BA1F929BA9F99F5ABB045A9E9DA
-print(0x75EA2AC47B5AB6798ED26A22346F3D5A313F7BA1F929BA9F99F5ABB045A9E9DA)
+scal = 85846364008201370813672623374514562900085307210766795858192308408478887957311
 Gx = 55066263022277343669578718895168534326250603453777594175500187360389116729240
 Gy = 32670510020758816978083085130507043184471273380659243275938904335757337482424
 GPoint = (Gx,Gy)

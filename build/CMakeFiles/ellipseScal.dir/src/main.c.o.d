@@ -1,4 +1,4 @@
-CMakeFiles/ellipse.dir/src/main.c.o: \
+CMakeFiles/ellipseScal.dir/src/main.c.o: \
   /Users/zanereeves/projects/ECC/src/main.c \
   /Users/zanereeves/projects/ECC/src/../header/arithmetic.h \
   /opt/homebrew/Cellar/gmp/6.3.0/include/gmp.h \

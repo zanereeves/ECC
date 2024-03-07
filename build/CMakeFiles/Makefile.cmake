@@ -50,6 +50,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/ellipse.dir/DependInfo.cmake"
+  "CMakeFiles/ellipseScal.dir/DependInfo.cmake"
+  "CMakeFiles/ellipsePed.dir/DependInfo.cmake"
   "CMakeFiles/ELLIPSE_LIB.dir/DependInfo.cmake"
   )

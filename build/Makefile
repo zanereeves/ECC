@@ -65,6 +65,16 @@ CMAKE_BINARY_DIR = /Users/zanereeves/projects/ECC/build
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running tests..."
+	/opt/homebrew/Cellar/cmake/3.28.1/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+.PHONY : test/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake cache editor..."
@@ -117,17 +127,30 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named ellipse
+# Target rules for targets named ellipseScal
 
 # Build rule for target.
-ellipse: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ellipse
-.PHONY : ellipse
+ellipseScal: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ellipseScal
+.PHONY : ellipseScal
 
 # fast build rule for target.
-ellipse/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ellipse.dir/build.make CMakeFiles/ellipse.dir/build
-.PHONY : ellipse/fast
+ellipseScal/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ellipseScal.dir/build.make CMakeFiles/ellipseScal.dir/build
+.PHONY : ellipseScal/fast
+
+#=============================================================================
+# Target rules for targets named ellipsePed
+
+# Build rule for target.
+ellipsePed: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ellipsePed
+.PHONY : ellipsePed
+
+# fast build rule for target.
+ellipsePed/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ellipsePed.dir/build.make CMakeFiles/ellipsePed.dir/build
+.PHONY : ellipsePed/fast
 
 #=============================================================================
 # Target rules for targets named ELLIPSE_LIB
@@ -171,7 +194,7 @@ src/main.o: src/main.c.o
 
 # target to build an object file
 src/main.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ellipse.dir/build.make CMakeFiles/ellipse.dir/src/main.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ellipseScal.dir/build.make CMakeFiles/ellipseScal.dir/src/main.c.o
 .PHONY : src/main.c.o
 
 src/main.i: src/main.c.i
@@ -179,7 +202,7 @@ src/main.i: src/main.c.i
 
 # target to preprocess a source file
 src/main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ellipse.dir/build.make CMakeFiles/ellipse.dir/src/main.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ellipseScal.dir/build.make CMakeFiles/ellipseScal.dir/src/main.c.i
 .PHONY : src/main.c.i
 
 src/main.s: src/main.c.s
@@ -187,8 +210,32 @@ src/main.s: src/main.c.s
 
 # target to generate assembly for a file
 src/main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ellipse.dir/build.make CMakeFiles/ellipse.dir/src/main.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ellipseScal.dir/build.make CMakeFiles/ellipseScal.dir/src/main.c.s
 .PHONY : src/main.c.s
+
+src/pedersenTest.o: src/pedersenTest.c.o
+.PHONY : src/pedersenTest.o
+
+# target to build an object file
+src/pedersenTest.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ellipsePed.dir/build.make CMakeFiles/ellipsePed.dir/src/pedersenTest.c.o
+.PHONY : src/pedersenTest.c.o
+
+src/pedersenTest.i: src/pedersenTest.c.i
+.PHONY : src/pedersenTest.i
+
+# target to preprocess a source file
+src/pedersenTest.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ellipsePed.dir/build.make CMakeFiles/ellipsePed.dir/src/pedersenTest.c.i
+.PHONY : src/pedersenTest.c.i
+
+src/pedersenTest.s: src/pedersenTest.c.s
+.PHONY : src/pedersenTest.s
+
+# target to generate assembly for a file
+src/pedersenTest.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ellipsePed.dir/build.make CMakeFiles/ellipsePed.dir/src/pedersenTest.c.s
+.PHONY : src/pedersenTest.c.s
 
 # Help Target
 help:
@@ -198,14 +245,19 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... test"
 	@echo "... ELLIPSE_LIB"
-	@echo "... ellipse"
+	@echo "... ellipsePed"
+	@echo "... ellipseScal"
 	@echo "... src/arithmetic.o"
 	@echo "... src/arithmetic.i"
 	@echo "... src/arithmetic.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/pedersenTest.o"
+	@echo "... src/pedersenTest.i"
+	@echo "... src/pedersenTest.s"
 .PHONY : help
 
 
