@@ -1,33 +1,49 @@
-Start testing: Mar 07 01:55 PST
+Start testing: Mar 14 09:09 PDT
 ----------------------------------------------------------
-1/2 Testing: test_0
-1/2 Test: test_0
+1/3 Testing: test_0
+1/3 Test: test_0
 Command: "/Users/zanereeves/projects/ECC/build/ellipseScal"
 Directory: /Users/zanereeves/projects/ECC/build
-"test_0" start time: Mar 07 01:55 PST
+"test_0" start time: Mar 14 09:09 PDT
 Output:
 ----------------------------------------------------------
 <end of output>
-Test time =   0.17 sec
+Test time =   0.10 sec
 ----------------------------------------------------------
 Test Passed.
-"test_0" end time: Mar 07 01:55 PST
+"test_0" end time: Mar 14 09:09 PDT
 "test_0" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-2/2 Testing: test_1
-2/2 Test: test_1
+2/3 Testing: test_1
+2/3 Test: test_1
 Command: "/Users/zanereeves/projects/ECC/build/ellipsePed"
 Directory: /Users/zanereeves/projects/ECC/build
-"test_1" start time: Mar 07 01:55 PST
+"test_1" start time: Mar 14 09:09 PDT
 Output:
 ----------------------------------------------------------
 <end of output>
-Test time =   0.08 sec
+Test time =   0.03 sec
 ----------------------------------------------------------
 Test Passed.
-"test_1" end time: Mar 07 01:55 PST
+"test_1" end time: Mar 14 09:09 PDT
 "test_1" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Mar 07 01:55 PST
+3/3 Testing: test_2
+3/3 Test: test_2
+Command: "/Users/zanereeves/projects/ECC/build/ellipseVerify"
+Directory: /Users/zanereeves/projects/ECC/build
+"test_2" start time: Mar 14 09:09 PDT
+Output:
+----------------------------------------------------------
+Assertion failed: (outty == 1), function main, file sigTest.c, line 57.
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Failed.
+"test_2" end time: Mar 14 09:09 PDT
+"test_2" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Mar 14 09:09 PDT

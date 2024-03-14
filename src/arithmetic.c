@@ -12,15 +12,14 @@ point initPoint(void) {
 }
 
 const unsigned long MAGIC_NUM = 123456789101112;
-const unsigned long A_COEF_VAL = 0;
 
-void Ed(point *p1, mpz_t field_len) {
+void Ed(point *p1, mpz_t field_len, mpz_t a) {
   mpz_t lambda, temp, temp2, temp3, x;
   mpz_inits(lambda, temp, temp2, x, temp3, NULL);
 
   mpz_mul(lambda, p1->x, p1->x);
   mpz_mul_ui(lambda, lambda, 3U);
-  mpz_add_ui(lambda, lambda, A_COEF_VAL);
+  mpz_add(lambda, lambda, a);
   mpz_mod(lambda, lambda, field_len);
 
   mpz_mul_ui(temp, p1->y, 2);
@@ -49,7 +48,7 @@ void Ed(point *p1, mpz_t field_len) {
   mpz_clears(lambda, temp, temp2, x, temp3, NULL);
 }
 
-void EAdd(point *P, point *Q, mpz_t field_len) {
+void EAdd(point *P, point *Q, mpz_t field_len, mpz_t a) {
   mpz_t lambda, mod_val, temp, nx, ny;
   mpz_init_set(temp, P->y);
   mpz_mul_si(temp, temp, (signed long)-1);
@@ -66,7 +65,7 @@ void EAdd(point *P, point *Q, mpz_t field_len) {
     mpz_set_ui(P->y, MAGIC_NUM);
   } else {
     if (mpz_cmp(P->x, Q->x) == 0 && mpz_cmp(P->y, Q->y) == 0) {
-      Ed(P, field_len);
+      Ed(P, field_len, a);
 
     } else {
       // Sets up lambda (dydx val)
@@ -106,7 +105,7 @@ void EAdd(point *P, point *Q, mpz_t field_len) {
   mpz_clears(temp, NULL);
 }
 
-point EccMult(point *P, mpz_t scalar, mpz_t field_len) {
+point EccMult(point *P, mpz_t scalar, mpz_t field_len, mpz_t a) {
 
   point N = initPoint();
   point R = initPoint();
@@ -125,19 +124,66 @@ point EccMult(point *P, mpz_t scalar, mpz_t field_len) {
 
   for (unsigned long i = 0; i <= cap; i++) {
     if (mpz_tstbit(scalar, (mp_bitcnt_t)i)) {
-      EAdd(&R, &N, field_len);
+      EAdd(&R, &N, field_len, a);
     }
-    EAdd(&N, &N, field_len);
+    EAdd(&N, &N, field_len, a);
   }
 
   return R;
 }
 
-point PedersenCommit(point G, point H, mpz_t blinding_factor,
-                     mpz_t hidden_value, mpz_t field_len) {
-  point rG = EccMult(&G, blinding_factor, field_len);
-  point aH = EccMult(&H, hidden_value, field_len);
+void sigGen(mpz_t dest, mpz_t randNum, mpz_t r, mpz_t privKey, mpz_t msg,
+            mpz_t modField, mpz_t primeField) {
+  mpz_t temp;
+  mpz_init(temp);
+  // d * r
+  mpz_init_set(dest, r);
+  mpz_mod(dest, dest, modField);
+  mpz_mod(dest, dest, primeField);
+  mpz_mul(dest, dest, privKey);
 
-  EAdd(&aH, &rG, field_len);
+  // msg + d * r
+  mpz_add(dest, dest, msg);
+
+  // k^(-1)(msg + d * r)
+  mpz_invert(temp, randNum, modField);
+  mpz_mul(dest, dest, temp);
+  mpz_mod(dest, dest, primeField);
+  mpz_clear(temp);
+}
+
+int sigVerify(mpz_t s, mpz_t msg, mpz_t r, point G, point Q, mpz_t modField,
+              mpz_t primeField, mpz_t a) {
+  mpz_t w, u1, u2;
+  mpz_init(w);
+  mpz_invert(w, s, modField);
+  mpz_mod(w, w, primeField);
+
+  mpz_init_set(u1, msg);
+  mpz_mul(u1, u1, w);
+  mpz_mod(u1, u1, primeField);
+
+  mpz_init_set(u2, r);
+  mpz_mul(u2, u2, w);
+  mpz_mod(u2, u2, primeField);
+
+  point u1G = EccMult(&G, u1, modField, a);
+  point u2Q = EccMult(&Q, u2, modField, a);
+  EAdd(&u1G, &u2Q, modField, a);
+
+  mpz_clears(w, u1, u2, NULL);
+  if (mpz_cmp(u1G.x, r) == 0) {
+    return 1;
+  }
+
+  return 0;
+}
+
+point PedersenCommit(point G, point H, mpz_t blinding_factor,
+                     mpz_t hidden_value, mpz_t field_len, mpz_t a) {
+  point rG = EccMult(&G, blinding_factor, field_len, a);
+  point aH = EccMult(&H, hidden_value, field_len, a);
+
+  EAdd(&aH, &rG, field_len, a);
   return aH;
 }

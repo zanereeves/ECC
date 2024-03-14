@@ -16,5 +16,11 @@
   "command": "/Library/Developer/CommandLineTools/usr/bin/cc  -I/usr/local/include -I/opt/homebrew/Cellar/gmp/6.3.0/include  -arch arm64 -mmacosx-version-min=12.5 -I/usr/local/include -I/opt/homebrew/Cellar/gmp/6.3.0/include -o CMakeFiles/ellipsePed.dir/src/pedersenTest.c.o -c /Users/zanereeves/projects/ECC/src/pedersenTest.c",
   "file": "/Users/zanereeves/projects/ECC/src/pedersenTest.c",
   "output": "CMakeFiles/ellipsePed.dir/src/pedersenTest.c.o"
+},
+{
+  "directory": "/Users/zanereeves/projects/ECC/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/cc  -I/usr/local/include -I/opt/homebrew/Cellar/gmp/6.3.0/include  -arch arm64 -mmacosx-version-min=12.5 -I/usr/local/include -I/opt/homebrew/Cellar/gmp/6.3.0/include -o CMakeFiles/ellipseVerify.dir/src/sigTest.c.o -c /Users/zanereeves/projects/ECC/src/sigTest.c",
+  "file": "/Users/zanereeves/projects/ECC/src/sigTest.c",
+  "output": "CMakeFiles/ellipseVerify.dir/src/sigTest.c.o"
 }
 ]

@@ -2,9 +2,11 @@ cmake_minimum_required(VERSION 3.10)
 project(ellipse)
 add_executable(ellipseScal src/main.c)
 add_executable(ellipsePed src/pedersenTest.c)
+add_executable(ellipseVerify src/sigTest.c)
 enable_testing()
 add_test(test_0 ellipseScal)
 add_test(test_1 ellipsePed)
+add_test(test_2 ellipseVerify)
 
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(LIBSODIUM libsodium)
@@ -54,3 +56,4 @@ target_link_libraries(ELLIPSE_LIB ${SODIUM_LIBRARY} ${LIBSODIUM_LDFLAGS_OTHER} $
 
 target_link_libraries(ellipseScal ELLIPSE_LIB)
 target_link_libraries(ellipsePed ELLIPSE_LIB)
+target_link_libraries(ellipseVerify ELLIPSE_LIB)

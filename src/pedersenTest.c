@@ -3,7 +3,7 @@
 #include <assert.h>
 
 int main() {
-  mpz_t pcurve, scalar, c_val;
+  mpz_t pcurve, scalar, c_val, a;
   point Gpoint = initPoint();
 
   mpz_set_str(Gpoint.x,
@@ -16,7 +16,8 @@ int main() {
               10);
 
   mpz_init(pcurve);
-
+  mpz_init(a);
+  mpz_set_ui(a, (unsigned long)0);
   mpz_set_str(
       pcurve,
       "fffffffffffffffffffffffffffffffffffffffffffffffffffffffefffffc2f", 16);
@@ -25,14 +26,14 @@ int main() {
       scalar,
       "75EA2AC47B5AB6798ED26A22346F3D5A313F7BA1F929BA9F99F5ABB045A9E9DA", 16);
 
-  point Gpoint2 = EccMult(&Gpoint, scalar, pcurve);
+  point Gpoint2 = EccMult(&Gpoint, scalar, pcurve, a);
 
   mpz_t r1, a1, r2, a2;
   mpz_inits(r1, a1, r2, a2, c_val, NULL);
   mpz_set_ui(r1, 50);
   mpz_set_ui(a1, 5);
 
-  point pedP1 = PedersenCommit(Gpoint2, Gpoint, r1, a1, pcurve);
+  point pedP1 = PedersenCommit(Gpoint2, Gpoint, r1, a1, pcurve, a);
 
   mpz_set_str(c_val,
               "11043084939038699685475363203158763867535081129639300053955"
@@ -49,10 +50,10 @@ int main() {
               "5021891314746",
               10);
 
-  point pedP2 = PedersenCommit(Gpoint2, Gpoint, r2, a2, pcurve);
+  point pedP2 = PedersenCommit(Gpoint2, Gpoint, r2, a2, pcurve, a);
   // testing commit value
   assert(mpz_cmp(pedP2.x, c_val) == 0);
-  EAdd(&pedP1, &pedP2, pcurve);
+  EAdd(&pedP1, &pedP2, pcurve, a);
   mpz_set_str(c_val,
               "5619364589038829500721827592507592769750400853926619349261477006"
               "9783543972077",
@@ -65,7 +66,7 @@ int main() {
   mpz_set_ui(r1r2, 100);
   mpz_set_ui(a1a2, 7);
 
-  point pedP3 = PedersenCommit(Gpoint2, Gpoint, r1r2, a1a2, pcurve);
+  point pedP3 = PedersenCommit(Gpoint2, Gpoint, r1r2, a1a2, pcurve, a);
 
   // testing for fulling homomorphic properties of PedersenCommitment scheme
   assert(mpz_cmp(pedP3.x, pedP1.x) == 0);

@@ -153,6 +153,19 @@ ellipsePed/fast:
 .PHONY : ellipsePed/fast
 
 #=============================================================================
+# Target rules for targets named ellipseVerify
+
+# Build rule for target.
+ellipseVerify: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ellipseVerify
+.PHONY : ellipseVerify
+
+# fast build rule for target.
+ellipseVerify/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ellipseVerify.dir/build.make CMakeFiles/ellipseVerify.dir/build
+.PHONY : ellipseVerify/fast
+
+#=============================================================================
 # Target rules for targets named ELLIPSE_LIB
 
 # Build rule for target.
@@ -237,6 +250,30 @@ src/pedersenTest.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ellipsePed.dir/build.make CMakeFiles/ellipsePed.dir/src/pedersenTest.c.s
 .PHONY : src/pedersenTest.c.s
 
+src/sigTest.o: src/sigTest.c.o
+.PHONY : src/sigTest.o
+
+# target to build an object file
+src/sigTest.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ellipseVerify.dir/build.make CMakeFiles/ellipseVerify.dir/src/sigTest.c.o
+.PHONY : src/sigTest.c.o
+
+src/sigTest.i: src/sigTest.c.i
+.PHONY : src/sigTest.i
+
+# target to preprocess a source file
+src/sigTest.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ellipseVerify.dir/build.make CMakeFiles/ellipseVerify.dir/src/sigTest.c.i
+.PHONY : src/sigTest.c.i
+
+src/sigTest.s: src/sigTest.c.s
+.PHONY : src/sigTest.s
+
+# target to generate assembly for a file
+src/sigTest.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ellipseVerify.dir/build.make CMakeFiles/ellipseVerify.dir/src/sigTest.c.s
+.PHONY : src/sigTest.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -249,6 +286,7 @@ help:
 	@echo "... ELLIPSE_LIB"
 	@echo "... ellipsePed"
 	@echo "... ellipseScal"
+	@echo "... ellipseVerify"
 	@echo "... src/arithmetic.o"
 	@echo "... src/arithmetic.i"
 	@echo "... src/arithmetic.s"
@@ -258,6 +296,9 @@ help:
 	@echo "... src/pedersenTest.o"
 	@echo "... src/pedersenTest.i"
 	@echo "... src/pedersenTest.s"
+	@echo "... src/sigTest.o"
+	@echo "... src/sigTest.i"
+	@echo "... src/sigTest.s"
 .PHONY : help
 
 

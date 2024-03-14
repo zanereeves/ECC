@@ -65,6 +65,7 @@ CMAKE_BINARY_DIR = /Users/zanereeves/projects/ECC/build
 # The main recursive "all" target.
 all: CMakeFiles/ellipseScal.dir/all
 all: CMakeFiles/ellipsePed.dir/all
+all: CMakeFiles/ellipseVerify.dir/all
 all: CMakeFiles/ELLIPSE_LIB.dir/all
 .PHONY : all
 
@@ -75,6 +76,7 @@ preinstall:
 # The main recursive "clean" target.
 clean: CMakeFiles/ellipseScal.dir/clean
 clean: CMakeFiles/ellipsePed.dir/clean
+clean: CMakeFiles/ellipseVerify.dir/clean
 clean: CMakeFiles/ELLIPSE_LIB.dir/clean
 .PHONY : clean
 
@@ -129,6 +131,32 @@ ellipsePed: CMakeFiles/ellipsePed.dir/rule
 CMakeFiles/ellipsePed.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ellipsePed.dir/build.make CMakeFiles/ellipsePed.dir/clean
 .PHONY : CMakeFiles/ellipsePed.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/ellipseVerify.dir
+
+# All Build rule for target.
+CMakeFiles/ellipseVerify.dir/all: CMakeFiles/ELLIPSE_LIB.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ellipseVerify.dir/build.make CMakeFiles/ellipseVerify.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ellipseVerify.dir/build.make CMakeFiles/ellipseVerify.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/zanereeves/projects/ECC/build/CMakeFiles --progress-num=7,8 "Built target ellipseVerify"
+.PHONY : CMakeFiles/ellipseVerify.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/ellipseVerify.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/zanereeves/projects/ECC/build/CMakeFiles 4
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/ellipseVerify.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/zanereeves/projects/ECC/build/CMakeFiles 0
+.PHONY : CMakeFiles/ellipseVerify.dir/rule
+
+# Convenience name for target.
+ellipseVerify: CMakeFiles/ellipseVerify.dir/rule
+.PHONY : ellipseVerify
+
+# clean rule for target.
+CMakeFiles/ellipseVerify.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ellipseVerify.dir/build.make CMakeFiles/ellipseVerify.dir/clean
+.PHONY : CMakeFiles/ellipseVerify.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/ELLIPSE_LIB.dir

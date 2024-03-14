@@ -1,0 +1,1 @@
+/Library/Developer/CommandLineTools/usr/bin/cc  -arch arm64 -mmacosx-version-min=12.5 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/ellipseVerify.dir/src/sigTest.c.o -o ellipseVerify  -Wl,-rpath,/Users/zanereeves/projects/ECC/build libELLIPSE_LIB.dylib /usr/local/lib/libsodium.dylib /usr/local/lib/libgmp.dylib 

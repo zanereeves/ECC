@@ -5,7 +5,7 @@
 
 int main() {
 
-  mpz_t pcurve, scalar, c_val, N;
+  mpz_t pcurve, scalar, c_val, N, a;
   point Gpoint = initPoint();
 
   mpz_set_str(Gpoint.x,
@@ -22,6 +22,7 @@ int main() {
       16);
 
   mpz_init(pcurve);
+  mpz_init(a);
 
   mpz_set_str(
       pcurve,
@@ -35,10 +36,11 @@ int main() {
                    "75121778812004186636477969878696279828755133275959279706936"
                    "303845289286232491",
                    10);
-  point gen = EccMult(&Gpoint, scalar, pcurve);
+  mpz_set_ui(a, (unsigned long)0);
+  point gen = EccMult(&Gpoint, scalar, pcurve, a);
   mpz_invert(scalar, scalar, N);
 
-  point invgen = EccMult(&gen, scalar, pcurve);
+  point invgen = EccMult(&gen, scalar, pcurve, a);
   // Test to see if we can succesfully invert a scalar
   assert(mpz_cmp(invgen.x, Gpoint.x) == 0);
 
@@ -50,7 +52,7 @@ int main() {
               "5289286232491",
               10);
   // testing scalars
-  point gen2 = EccMult(&Gpoint, scalar, pcurve);
+  point gen2 = EccMult(&Gpoint, scalar, pcurve, a);
   mpz_set_str(c_val,
               "8584636400820137081367262337451456290008530721076679585819230840"
               "8478887957311",
@@ -58,7 +60,7 @@ int main() {
   // testing scalars
   assert(mpz_cmp(gen2.x, c_val) == 0);
   mpz_set(scalar, c_val);
-  point gen3 = EccMult(&Gpoint, scalar, pcurve);
+  point gen3 = EccMult(&Gpoint, scalar, pcurve, a);
   mpz_set_str(c_val,
               "9178027858198522986506690462899832460214623527072350129118871294"
               "5107209395530",

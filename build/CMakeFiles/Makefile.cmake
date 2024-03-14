@@ -52,5 +52,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/ellipseScal.dir/DependInfo.cmake"
   "CMakeFiles/ellipsePed.dir/DependInfo.cmake"
+  "CMakeFiles/ellipseVerify.dir/DependInfo.cmake"
   "CMakeFiles/ELLIPSE_LIB.dir/DependInfo.cmake"
   )

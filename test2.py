@@ -52,36 +52,22 @@ Gpoint = Point(55066263022277343669578718895168534326250603453777594175500187360
 
 
 privKey = 0x75EA2AC47B5AB6798ED26A22346F3D5A313F7BA1F929BA9F99F5ABB045A9E9DA
-RandNum = 28695618543805844332113829720373285210420739438570883203839696518176414791234
+RandNum = 2869561854380
 gen2 = mul(Gpoint,privKey)
-print(gen2)
-#print(EccAdd(Gpoint, gen2))
-
-#print("val above")
-N = 0xfffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364141
-#print(mul(gen2, mod_invert(privKey, N)))
-
-rg1 = mul(gen2, 50)
-rg2 = mul(gen2, 50)
-ah1 = mul(Gpoint, 5)
-#print(rg1)
-rg1ah1 = EccAdd(rg1, ah1)
-#print(rg1ah1)
-ah2 = mul(Gpoint, 2)
-rg2ah2 = EccAdd(rg2, ah2)
-#print(rg2ah2)
-rgsum = EccAdd(rg1, rg2)
-ahsum = EccAdd(ah1, ah2)
-
-addedsum2 = EccAdd(rg1ah1, rg2ah2)
-print(addedsum2)
 
 
-addedsum = EccAdd(rgsum, ahsum)
-#//print(addedsum)
+(x1, y1) = mul(Gpoint, RandNum)
+x1 = x1 % p
 
-rg = mul(gen2, 100)
-ah = mul(Gpoint, 10)
-added = EccAdd(rg, ah)
+primeOrder = 115792089237316195423570985008687907852837564279074904382605163141518161494337
+r = x1 % primeOrder
+msg = 101
 
-#//print(added)
+s = (mod_invert(RandNum, primeOrder) * (msg + (privKey * r))) % primeOrder
+w = mod_invert(s, primeOrder)
+u1 = (msg * w) % primeOrder
+u2 = (r * w) % primeOrder
+(x2, y2) = EccAdd(mul(Gpoint, u1), mul(gen2, u2))
+
+
+print(x2 % primeOrder == r)

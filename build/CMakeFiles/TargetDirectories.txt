@@ -1,5 +1,6 @@
 /Users/zanereeves/projects/ECC/build/CMakeFiles/ellipseScal.dir
 /Users/zanereeves/projects/ECC/build/CMakeFiles/ellipsePed.dir
+/Users/zanereeves/projects/ECC/build/CMakeFiles/ellipseVerify.dir
 /Users/zanereeves/projects/ECC/build/CMakeFiles/ELLIPSE_LIB.dir
 /Users/zanereeves/projects/ECC/build/CMakeFiles/test.dir
 /Users/zanereeves/projects/ECC/build/CMakeFiles/edit_cache.dir
