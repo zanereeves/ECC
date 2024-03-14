@@ -1,5 +1,14 @@
 ## Timeline
-### This weeks timeline
+### This week
+I template coded my signature verification algorithm in python, and then I attempted to implement algorithm in C. Currently,
+I am running into issues with testing software and with my new signature verification code. As of right now
+my new code doesn't seem to generate appropriate output. Additionally, when I run my test now I get strange errors
+with previous code that wasn't there initially. Furthermore, these errors only spring up on random calls to make test
+so the general issue seems difficult to track. Lastly, I refactored code to better handle general elliptic curve behavior.
+
+https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm
+
+### Last weeks timeline
 I scanned through the input and output for every function meticulously to determine that the error in calculation
 was within the ECC scalar double code. I incorrectly labeled a variable swap and it caused unexpected behavior
 later within process execution. Furthermore, I implemented a variety of test scripts that tested
@@ -10,7 +19,7 @@ https://cmake.org/cmake/help/book/mastering-cmake/chapter/Testing%20With%20CMake
 https://coderefinery.github.io/cmake-workshop/testing/
 
 
-### Last weeks timeline
+### Fourth weeks timeline
 I wrote up implementation code in python in two separate files because I wasn't managing to consolidate
 both my C code output with my python code output and I wanted to make sure I understood the core logic.
 Furthermore, I am currently wondering if it would be better to implement several cryptographic cryptography
